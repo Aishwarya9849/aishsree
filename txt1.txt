@@ -21,7 +21,7 @@ services:
 
 volumes:
   mongo-data: 
-
+=====================================================================
 *)Check Docker version & list images : docker --version ,docker images.
 *)Pull & run Hello World image: docker pull hello-world ,docker run hello-world.
 *)Pull Ubuntu & run interactive mode:docker pull ubuntu,docker run -it ubuntu /bin/bash.
@@ -41,7 +41,7 @@ volumes:
     ->docker push username/CSIMAGE:latest
 *)Check if container exited cleanly or crashed:docker ps -a
     ->docker inspect <container_id> --format='{{.State.ExitCode}}'
-======================
+=====================================================================
 Create multi-folder docker-compose.yml (CampusMgmtSystemproject with TomcatServer)::
   ->version: "3.8"
     services:
