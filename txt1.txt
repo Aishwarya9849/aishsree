@@ -20,4 +20,30 @@ services:
       - mongo-data:/data/db
 
 volumes:
-  mongo-data:
+  mongo-data: 
+
+*)Check Docker version & list images : docker --version ,docker images.
+*)Pull & run Hello World image: docker pull hello-world ,docker run hello-world.
+*)Pull Ubuntu & run interactive mode:docker pull ubuntu,docker run -it ubuntu /bin/bash.
+*)Dockerfile for Maven project (image: CSIMAGE):FROM tomcat:9-jdk11
+      ->COPY target/CampusMgmtSystem.war /usr/local/tomcat/webapps/
+      ->docker build -t CSIMAGE .
+      ->docker run -d -p 8080:8080 CSIMAGE
+*)Pull official image & run container, list running:docker pull tomcat,
+    ->docker run -d --name tomcat1 tomcat
+    ->docker ps
+*)Start & stop a running container:docker start <container_id>,
+    ->docker stop <container_id>
+*)List all containers (including stopped):docker ps -a
+*)Stop a running container:docker stop <container_id>
+*)Push custom image to Docker Hub:docker login
+    ->docker tag CSIMAGE username/CSIMAGE:latest
+    ->docker push username/CSIMAGE:latest
+*)Check if container exited cleanly or crashed:docker ps -a
+    ->docker inspect <container_id> --format='{{.State.ExitCode}}'
+
+
+
+
+
+
