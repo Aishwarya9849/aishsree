@@ -41,6 +41,27 @@ volumes:
     ->docker push username/CSIMAGE:latest
 *)Check if container exited cleanly or crashed:docker ps -a
     ->docker inspect <container_id> --format='{{.State.ExitCode}}'
+======================
+Create multi-folder docker-compose.yml (CampusMgmtSystemproject with TomcatServer)::
+  ->version: "3.8"
+    services:
+      tomcatserver:
+        image: tomcat:9-jdk11
+        container_name: TomcatServer
+        ports:
+          - "8086:8080"
+    
+      campusmgmtsystem:
+        image: username/campusmgmtsystem:latest   # replace with your pushed image
+        container_name: CampusMgmtSystemApp
+        ports:
+          - "7007:8080"
+        depends_on:
+          - tomcatserver
+====>docker-compose up -d
+*)Access Tomcat (Container 1 → port 8086): http://localhost:8086
+*)Access CampusMgmtSystem App (Container 2 → port 7007) :http://localhost:7007
+
 
 
 
