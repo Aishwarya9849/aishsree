@@ -2,6 +2,8 @@ create a docker file to build a docker image for sams using maven then
  build the docker image run the container and confirm 
  that sams is accessible at http://localhost:8090
 and push the Docker image to Docker Hub 
+
+SEE THIS IN CODE VIEW SO ANSWER APPEAR SMALL
 steps:
 # Docker Instructions for SAMS using Maven
 
